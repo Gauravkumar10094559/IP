@@ -1,7 +1,7 @@
-import {FETCH_LANDIMG} from '../actions/types';
+import { FETCH_LANDIMG } from "../actions/types";
 
-export default function (state=[], action ) {
-	switch(action.type) {
+export default function(state = [], action) {
+	switch (action.type) {
 		case FETCH_LANDIMG:
 			return action.payload;
 
@@ -9,8 +9,6 @@ export default function (state=[], action ) {
 			return state;
 	}
 }
-
-
 
 // export default function() {
 // 	return [
@@ -25,5 +23,4 @@ export default function (state=[], action ) {
 // 		{ imgId:'zzfUqy5bdwo' },
 // 		{ imgId:'jZxairpkhho' }
 // 	]
-// } 
-
+// }

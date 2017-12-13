@@ -21,7 +21,6 @@ const User = mongoose.model("User");
 // 	}
 // })
 
-
 // image.create({
 // 	ProductTitle: 'String',
 // 	GROUPID:'String',
@@ -38,7 +37,6 @@ const User = mongoose.model("User");
 // 		console.log(img);
 // 	}
 // });
-
 
 passport.serializeUser((user, done) => {
 	done(null, user.id);
@@ -80,7 +78,7 @@ passport.use(
 		{
 			clientID: keys.facebookClientID,
 			clientSecret: keys.facebookClientSecret,
-			proxy:true,
+			proxy: true,
 			callbackURL: "/auth/facebook/callback"
 		},
 		(accessToken, refreshToken, profile, done) => {

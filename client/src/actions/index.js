@@ -35,14 +35,13 @@ export const fetchUserImg = () => async dispatch => {
 
 export const fetchCart = () => async dispatch => {
 	const res = await axios.get("/api/cart");
-	
-	dispatch({ type: FETCH_CART, payload: res.data });
-}; 
 
-export const deleteCartItem =(item) => async dispatch => {
-	
+	dispatch({ type: FETCH_CART, payload: res.data });
+};
+
+export const deleteCartItem = item => async dispatch => {
 	//use delete instead of get request
 	const res = await axios.get("/api/cart/" + item + "");
-	console.log('res',res);
-	dispatch({type:FETCH_CART, payload:res.data});
-}
+	console.log("res", res);
+	dispatch({ type: FETCH_CART, payload: res.data });
+};

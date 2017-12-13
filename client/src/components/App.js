@@ -11,15 +11,16 @@ import UploadImgForm from "./UploadImgForm";
 import Cart from "./Cart";
 import "../App.css";
 
-const MyAccount=() => {  return <h2> Users Account</h2>;	}
+const MyAccount = () => {
+	return <h2> Users Account</h2>;
+};
 
 class App extends Component {
-
-	componentDidMount() {  
+	componentDidMount() {
 		this.props.fetchUser();
 	}
 
-	render() { 
+	render() {
 		// console.log(this.props);
 		return (
 			<div>
@@ -32,10 +33,18 @@ class App extends Component {
 							path="/product_category/:type"
 							component={Product}
 						/>
-						<Route exact path="/user_account" component={MyAccount}/>
-						<Route exact path="/upload/img" component={UploadImgForm}/>
-						<Route exact path="/cart" component={Cart}/>
-						<Route exact path="/image/:link" component={ImgDesc}/>
+						<Route
+							exact
+							path="/user_account"
+							component={MyAccount}
+						/>
+						<Route
+							exact
+							path="/upload/img"
+							component={UploadImgForm}
+						/>
+						<Route exact path="/cart" component={Cart} />
+						<Route exact path="/image/:link" component={ImgDesc} />
 						<Footer />
 					</div>
 				</BrowserRouter>

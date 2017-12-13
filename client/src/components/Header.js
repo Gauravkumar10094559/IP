@@ -14,7 +14,7 @@ class Header extends Component {
 						<a href="/auth/facebook">Sign in with facebook</a>
 					</li>
 				);
-			default: 
+			default:
 				return (
 					<li>
 						<a href="/api/Logout"> Logout</a>

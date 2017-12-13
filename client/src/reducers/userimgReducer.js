@@ -1,7 +1,7 @@
-import {FETCH_USERIMG} from '../actions/types';
+import { FETCH_USERIMG } from "../actions/types";
 
-export default function (state=[], action ) {
-	switch(action.type) {
+export default function(state = [], action) {
+	switch (action.type) {
 		case FETCH_USERIMG:
 			return action.payload;
 
