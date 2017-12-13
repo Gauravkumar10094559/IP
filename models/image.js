@@ -8,16 +8,12 @@ const { Schema } = mongoose;
 
 const imageSchema = new Schema({
 	ProductTitle: String,
-	GROUPID:String,
-	description:String,
-	image:String,
-	imagelinks:String,
-	category:String,
-	tags:String
+	GROUPID: String,
+	description: String,
+	image: String,
+	imagelinks: String,
+	category: String,
+	tags: String
 });
 
-
-
 mongoose.model("Image", imageSchema);
-
-
