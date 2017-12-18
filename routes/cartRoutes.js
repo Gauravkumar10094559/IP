@@ -1,7 +1,10 @@
+const fs= require('fs');
 const mongoose = require("mongoose");
 const UserImage = mongoose.model("UserImage");
 
 module.exports = app => {
+
+
 	app.get("/api/cart", async (req, res) => {
 		const id = [req.user.id];
 		const cart = await UserImage.find({
@@ -13,7 +16,24 @@ module.exports = app => {
 	});
 
 	app.get("/api/cart/:item", async (req, res) => {
-		console.log("item", req.params);
+
+
+		 
+		//  fs.stat(req.params, function (err, stats) {
+		//    console.log(stats);//here we got all information of file in stats variable
+
+		//    if (err) {
+		//        return console.error(err);
+		//    }
+			 
+		   fs.unlink('./uploads/'+req.params.item,function(err){
+		        if(err) return console.log(err);
+		        console.log('file deleted successfully');
+		   });  
+		// });
+
+
+		// console.log("item=========", req.params);
 		const deleted = await UserImage.find({ originalname: req.params.item })
 			.remove()
 			.exec();

@@ -9,11 +9,12 @@ import Product from "./Product";
 import ImgDesc from "./ImgDesc";
 import UploadImgForm from "./UploadImgForm";
 import Cart from "./Cart";
+import UserDetails from "./UserDetails";
 import "../App.css";
 
-const MyAccount = () => {
-	return <h2> Users Account</h2>;
-};
+// const UserDetails = () => {
+// 	return <h2> Users Account</h2>;
+// };
 
 class App extends Component {
 	componentDidMount() {
@@ -29,22 +30,22 @@ class App extends Component {
 						<Header />
 						<Route exact path="/" component={Landing} />
 						<Route
-							exact
+							
 							path="/product_category/:type"
 							component={Product}
 						/>
 						<Route
-							exact
+							
 							path="/user_account"
-							component={MyAccount}
+							component={UserDetails}
 						/>
 						<Route
-							exact
+							
 							path="/upload/img"
 							component={UploadImgForm}
 						/>
-						<Route exact path="/cart" component={Cart} />
-						<Route exact path="/image/:link" component={ImgDesc} />
+						<Route  path="/cart" component={Cart} />
+						<Route  path="/image/:link" component={ImgDesc} />
 						<Footer />
 					</div>
 				</BrowserRouter>

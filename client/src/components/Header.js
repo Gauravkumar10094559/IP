@@ -93,7 +93,7 @@ class Header extends Component {
 						<Link to="/cart">CART</Link>
 					</li>
 					<li>
-						<Link to="/">MY ACCOUNT</Link>
+						<Link to="/user_account">MY ACCOUNT</Link>
 					</li>
 					<li>
 						<Link to="/">CONTACT US</Link>

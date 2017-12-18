@@ -5,6 +5,14 @@ import { FETCH_LANDIMG } from "./types";
 import { FETCH_USERIMG } from "./types";
 import { FETCH_CART } from "./types";
 
+export const submitform = (values,history) => async dispatch => {
+	// console.log('history',history);
+	const v=JSON.stringify(values);
+	const res = await axios.post("/api/submitform/" + v + "",v);
+	history.push('/user_account');
+	dispatch({ type: FETCH_USER, payload: res.data });
+};
+
 export const fetchUser = () => async dispatch => {
 	const res = await axios.get("/api/current_user");
 	// console.log(res);
@@ -42,6 +50,6 @@ export const fetchCart = () => async dispatch => {
 export const deleteCartItem = item => async dispatch => {
 	//use delete instead of get request
 	const res = await axios.get("/api/cart/" + item + "");
-	console.log("res", res);
+	// console.log("res", res);
 	dispatch({ type: FETCH_CART, payload: res.data });
 };

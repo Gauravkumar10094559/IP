@@ -28,10 +28,12 @@ require("./routes/authRoutes")(app);
 require("./routes/productRoutes")(app);
 require("./routes/uploadImg")(app);
 require("./routes/cartRoutes")(app);
-// console.log(__dirname);
-mongoose.connect(keys.mongoURI);
+require("./routes/userRoutes")(app);
 
-const PORT = process.env.PORT || 5000;
+// console.log(__dirname);
+mongoose.connect(keys.mongoURI,{useMongoClient:true});
+
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
 	console.log("Server has started");
 });

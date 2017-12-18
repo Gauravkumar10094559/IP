@@ -8,7 +8,7 @@ module.exports = app => {
 			let Cricket = await Image.find({ ProductTitle: "Cricket" }).limit(
 				4
 			);
-			let Music = await Image.find({ ProductTitle: "Music" }).limit(4);
+			let Music = await Image.find({ ProductTitle: "BasketBall" }).limit(4);
 			let TVSeries = await Image.find({ ProductTitle: "TVSeries" }).limit(
 				4
 			);

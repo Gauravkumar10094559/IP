@@ -16,11 +16,11 @@ module.exports = app => {
 	// router.addImage = function (image, callback) {
 	// 	UserImage.create(image,callback);
 	// }
-
+	// console.log('__dirname================',__dirname);
 	var storage = multer.diskStorage({
 		destination: function(req, file, cb) {
 			// cb(null,'C:/Users/gaurav/workspace/iskaPrint/uploads')
-			cb(null, "C:/Users/gaurav/workspace/iskaPrint/uploads");
+			cb(null, "./uploads");//./uploads/userImg
 		},
 		filename: function(req, file, cb) {
 			cb(null, file.originalname);
@@ -35,7 +35,7 @@ module.exports = app => {
 	// 	res.render('index.ejs');
 	// });
 
-	app.post("/api/upload/img", upload.any(), function(req, res, next) {
+	app.post("/api/upload/img", upload.any(), function(req, res, next) {	//upload.any() will save the image to uploads
 		// console.log(req.files[0]);
 		// console.log(req.user.id);
 

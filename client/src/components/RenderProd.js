@@ -12,6 +12,7 @@ export default props => {
 			{props.data.map(function(img) {
 				// url="/image/"+img.imagelinks+"/tags/"+img.tags+"";
 				url = "/image/" + JSON.stringify(img) + "";
+				// console.log(url);
 				return (
 					<li className="renderProdli" key={img.image}>
 						<Link to={url}>
