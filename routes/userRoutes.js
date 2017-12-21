@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 const User = mongoose.model('User');
+const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = app => {
 
 
 	// cannot get /user_account
 
-  app.post('/api/submitform/:values',async (req,res)=>{
+  app.post('/api/submitform/:values',requireLogin,async (req,res)=>{
     // console.log(JSON.parse(req.params.values)); 
     // console.log(req.body); 
     var {name,email,phone,address}=JSON.parse(req.params.values);

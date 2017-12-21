@@ -5,8 +5,8 @@ import "../App.css";
 
 class CartList extends Component {
 	render() {
-		// console.log(this.props.cart);
-		if (this.props.cart.length === 0) {
+		console.log('this.props.cart',this.props.cart);
+		if (this.props.cart.length === 0 || this.props.cart.error) {
 			return <h2>Loading</h2>;
 		}
 		return (

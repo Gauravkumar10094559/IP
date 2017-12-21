@@ -41,9 +41,13 @@ export const fetchUserImg = () => async dispatch => {
 	dispatch({ type: FETCH_USERIMG, payload: res.data });
 };
 
-export const fetchCart = () => async dispatch => {
+export const fetchCart = (history) => async dispatch => {
 	const res = await axios.get("/api/cart");
-
+	console.log('fetchCart res.data',res.data.error);
+	if(res.data.error) {
+		console.log('history',history);
+		history.push('/');
+	}
 	dispatch({ type: FETCH_CART, payload: res.data });
 };
 

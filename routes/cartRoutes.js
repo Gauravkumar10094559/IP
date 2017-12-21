@@ -1,11 +1,11 @@
 const fs= require('fs');
 const mongoose = require("mongoose");
 const UserImage = mongoose.model("UserImage");
-
+const requireLogin = require('../middlewares/requireLogin');
 module.exports = app => {
 
 
-	app.get("/api/cart", async (req, res) => {
+	app.get("/api/cart", requireLogin, async (req, res) => {
 		const id = [req.user.id];
 		const cart = await UserImage.find({
 			owner: {
@@ -15,7 +15,7 @@ module.exports = app => {
 		res.send(cart);
 	});
 
-	app.get("/api/cart/:item", async (req, res) => {
+	app.get("/api/cart/:item", requireLogin ,async (req, res) => {
 
 
 		 

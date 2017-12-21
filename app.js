@@ -31,6 +31,7 @@ require("./routes/cartRoutes")(app);
 require("./routes/userRoutes")(app);
 
 // console.log(__dirname);
+mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI,{useMongoClient:true});
 
 const PORT = process.env.PORT || 8000;

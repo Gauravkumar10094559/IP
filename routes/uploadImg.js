@@ -1,6 +1,7 @@
 const multer = require("multer");
 const mongoose = require("mongoose");
 const UserImage = mongoose.model("UserImage");
+const requireLogin = require('../middlewares/requireLogin');
 
 //take care of the hardcoded url of uploads
 
@@ -35,7 +36,7 @@ module.exports = app => {
 	// 	res.render('index.ejs');
 	// });
 
-	app.post("/api/upload/img", upload.any(), function(req, res, next) {	//upload.any() will save the image to uploads
+	app.post("/api/upload/img", requireLogin ,upload.any(), function(req, res, next) {	//upload.any() will save the image to uploads
 		// console.log(req.files[0]);
 		// console.log(req.user.id);
 
@@ -64,7 +65,7 @@ module.exports = app => {
 		// });
 	});
 
-	app.get("/api/upload/img", async (req, res) => {
+	app.get("/api/upload/img", requireLogin ,async (req, res) => {
 		const id = [req.user.id];
 		// console.log(id);
 		const response = await UserImage.find({
@@ -76,7 +77,7 @@ module.exports = app => {
 		res.send(response);
 	});
 
-	app.get("/api/showall/images", function(req, res) {
+	app.get("/api/showall/images", requireLogin ,function(req, res) {
 		UserImage.find(function(err, genres) {
 			if (err) {
 				throw err;
@@ -91,7 +92,7 @@ module.exports = app => {
 		// });
 	});
 
-	app.get("/api/img/:id", function(req, res) {
+	app.get("/api/img/:id",requireLogin ,function(req, res) {
 		UserImage.findById(req.params.id, function(err, genres) {
 			if (err) {
 				throw err;
