@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const userImageSchema = new Schema({
+	quantity:{
+		type:Number,
+		required:true
+	},
 	path: {
 		type: String,
 		required: true,
@@ -11,6 +15,10 @@ const userImageSchema = new Schema({
 	originalname: {
 		type: String,
 		required: true
+	},
+	type:{
+		type:String,
+		required:true
 	},
 	owner: {
 		type: mongoose.Schema.Types.ObjectId,

@@ -146,6 +146,13 @@ a {
 	list-style: none;
 }
 
+.checkoutItem{
+	border:1px solid grey;
+	border-radius: 5px;
+	list-style: none;
+	padding: 10px;
+}
+
 /*
 // K2KL5NRvbxY
 

@@ -1,6 +1,6 @@
 import { FETCH_CART } from "../actions/types";
 
-export default function(state = [], action) {
+export default function(state =null, action) {
 	// console.log('inside reducer');
 	switch (action.type) {
 		case FETCH_CART:

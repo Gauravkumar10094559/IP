@@ -5,6 +5,25 @@ import { FETCH_LANDIMG } from "./types";
 import { FETCH_USERIMG } from "./types";
 import { FETCH_CART } from "./types";
 
+export const updateUser = sum => async dispatch=> {
+	// console.log('action sum',sum);
+	const res= await axios.post('/api/updateUser',{sum}); //objects are sent so don't use values directly you dummy
+	dispatch({type:FETCH_USER,payload:res.data});
+}
+
+export const handleToken= (token,sum) => async dispatch => {
+	const res= await axios.post('/api/stripe',{token,sum});
+	dispatch({type:FETCH_USER,payload:res.data});
+}
+
+export const addToCart = (values) => async dispatch => {
+	// console.log('values',values);
+	var v=JSON.stringify(values);
+	// console.log(v);
+	const res= await axios.get("/api/addToCart/"+v+"");
+	dispatch({ type: FETCH_USER, payload: res.data });
+};
+
 export const submitform = (values,history) => async dispatch => {
 	// console.log('history',history);
 	const v=JSON.stringify(values);
@@ -43,11 +62,11 @@ export const fetchUserImg = () => async dispatch => {
 
 export const fetchCart = (history) => async dispatch => {
 	const res = await axios.get("/api/cart");
-	console.log('fetchCart res.data',res.data.error);
-	if(res.data.error) {
-		console.log('history',history);
-		history.push('/');
-	}
+	// console.log('fetchCart res.data',res.data.error);
+	// if(res.data.error) {
+	// 	console.log('history',history);
+	// 	history.push('/');
+	// }
 	dispatch({ type: FETCH_CART, payload: res.data });
 };
 

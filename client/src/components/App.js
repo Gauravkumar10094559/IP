@@ -10,10 +10,16 @@ import ImgDesc from "./ImgDesc";
 import UploadImgForm from "./UploadImgForm";
 import Cart from "./Cart";
 import UserDetails from "./UserDetails";
+import Checkout from './Checkout';
+import Payments from './Payments';
 import "../App.css";
 
 const Login = () => {
 	return <h2 style={{marginTop:'100px'}}> Please Sign in to do that!! </h2>;
+};
+
+const Done = () => {
+	return <h2 style={{marginTop:'100px'}}> Done dona done </h2>;
 };
 
 class App extends Component {
@@ -23,6 +29,14 @@ class App extends Component {
 
 	render() {
 		// console.log('this.props.auth',this.props.auth);
+
+		if(this.props.auth===null) {
+			return (
+				<div>
+					Loading!!!
+				</div>
+			)
+		}
 
 		const PrivateRoute = ({component:Component,...rest}) => (
 			<Route {...rest} render={(props) => (
@@ -55,8 +69,10 @@ class App extends Component {
 						/>
 
 						<PrivateRoute  path="/cart" component={Cart} />
-
+						<Route path="/checkout" component={Checkout} />
+						<Route path="/payment" component={Payments} />
 						<Route  path='/login' component={Login} />
+						<Route  path='/done' component={Done} />
 						<Route  path="/image/:link" component={ImgDesc} />
 						<Footer />
 					</div>

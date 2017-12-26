@@ -24,11 +24,11 @@ class Landing extends Component {
 				return this.props.landImg.Cricket.map(img => {
 					url = "/image/" + JSON.stringify(img) + "";
 					return (
-						<Link to={url}>
+						<Link to={url} key={img.image}>
 							<img
 								alt={img.image}
 								className="landing-image"
-								key={img.image}
+								
 								src={img.imagelinks}
 							/>
 						</Link>
@@ -38,11 +38,11 @@ class Landing extends Component {
 				return this.props.landImg.Music.map(img => {
 					url = "/image/" + JSON.stringify(img) + "";
 					return (
-						<Link to={url}>
+						<Link to={url} key={img.image}>
 							<img
 								alt={img.image}
 								className="landing-image"
-								key={img.image}
+								
 								src={img.imagelinks}
 							/>
 						</Link>
@@ -52,11 +52,11 @@ class Landing extends Component {
 				return this.props.landImg.TVSeries.map(img => {
 					url = "/image/" + JSON.stringify(img) + "";
 					return (
-						<Link to={url}>
+						<Link to={url} key={img.image}>
 							<img
 								alt={img.image}
 								className="landing-image"
-								key={img.image}
+								
 								src={img.imagelinks}
 							/>
 						</Link>
@@ -66,11 +66,14 @@ class Landing extends Component {
 				return this.props.landImg.Gaming.map(img => {
 					url = "/image/" + JSON.stringify(img) + "";
 					return (
-						<Link to={url}>
+						<Link 
+							to={url}
+							key={img.image}
+						>
 							<img
 								alt={img.image}
 								className="landing-image"
-								key={img.image}
+								
 								src={img.imagelinks}
 							/>
 						</Link>

@@ -4,7 +4,6 @@ const UserImage = mongoose.model("UserImage");
 const requireLogin = require('../middlewares/requireLogin');
 module.exports = app => {
 
-
 	app.get("/api/cart", requireLogin, async (req, res) => {
 		const id = [req.user.id];
 		const cart = await UserImage.find({

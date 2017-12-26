@@ -14,7 +14,27 @@ const userSchema = new Schema({
 			type:Boolean,
 			default:false
 		}
-	}
+	},
+	ordered:[
+		{
+			paid:{
+				type:Boolean,
+				default:false 
+			},
+			method:{
+				type:String
+			},
+			payableAmount:{
+				type:Number
+			},
+			images:[
+				{
+					type: mongoose.Schema.Types.ObjectId,
+					ref: "UserImage"	
+				}
+			]
+		}
+	]
 });
 
 mongoose.model("User", userSchema);

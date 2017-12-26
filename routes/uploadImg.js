@@ -39,7 +39,8 @@ module.exports = app => {
 	app.post("/api/upload/img", requireLogin ,upload.any(), function(req, res, next) {	//upload.any() will save the image to uploads
 		// console.log(req.files[0]);
 		// console.log(req.user.id);
-
+		// console.log(req.body);
+		var {posterType,quantity}=req.body;
 		var path = req.files[0].path;
 		var imageName = req.files[0].originalname;
 		var id = req.user.id;
@@ -47,6 +48,8 @@ module.exports = app => {
 		var imagepath = {};
 		imagepath["path"] = path;
 		imagepath["originalname"] = imageName;
+		imagepath["quantity"] = quantity;
+		imagepath["type"] = posterType;
 		imagepath["owner"] = id;
 		// console.log('__dirname',__dirnadme);
 		// console.log('imagepath',imagepath);
@@ -55,7 +58,7 @@ module.exports = app => {
 			if (err) {
 				console.log(err);
 			}
-			// console.log(typeof userimg);
+			// console.log( userimg);
 			res.redirect("/upload/img");
 			// res.send(userimg);
 		});
@@ -63,6 +66,27 @@ module.exports = app => {
 		// router.addImage(imagepath,function(err) {
 		// 	console.log(err);
 		// });
+	});
+
+	app.get('/api/addToCart/:data', async (req,res) => {
+		console.log(JSON.parse(req.params.data));
+		var {type,qty,id}=JSON.parse(req.params.data);
+		var imagepath = {};
+		imagepath["path"] = id;
+		imagepath["originalname"]='dbstoredimg'
+		imagepath["quantity"] = qty;
+		imagepath["type"] = type;
+		imagepath["owner"] = req.user.id;
+	  console.log('imagepath',imagepath);
+
+		UserImage.create(imagepath, function(err, updated) {
+			if (err) {
+				console.log(err);
+			}
+			console.log( 'userimg',updated);
+			res.redirect("/");
+			// res.send(userimg);
+		});
 	});
 
 	app.get("/api/upload/img", requireLogin ,async (req, res) => {

@@ -6,11 +6,11 @@ import {withRouter} from 'react-router-dom';
 
 class Cart extends Component {
 	componentWillMount() {
-		this.props.fetchCart(this.props.history);
+		this.props.fetchCart(this.props.history); 
 	}
 
 	render() { 
-		// console.log(this.props.cart);
+		// console.log(this.props.cart);  
 		return (
 			<div>
 				This is the user's cart everybody
